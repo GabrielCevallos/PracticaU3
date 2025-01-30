@@ -11,8 +11,13 @@ public class GraphLabelNoDirect<E> extends GraphLabelDirect<E> {
         if(isLabeledGraph()) {
             addEdge(getVerticeLabel(v1), getVerticeLabel(v2), weight);
             addEdge(getVerticeLabel(v2), getVerticeLabel(v1), weight);
+            setNroEdges(nroEdges() + 1);
         } else {
             throw new LabelException("Grafo no etiquetado");
         }
+    }
+
+    public void addEdge(Integer v1, Integer v2) throws Exception {
+        addEdge(v1, v2, Float.NaN);
     }
 }

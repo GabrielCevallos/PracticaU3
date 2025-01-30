@@ -27,4 +27,9 @@ public class Adyacencia {
         this.weight = weight;
     }
 
+    @Override
+    public String toString() {
+        return "Adyacencia {" + "destino = " + destination + ", peso = " + weight + "}";
+    }
+
 }
