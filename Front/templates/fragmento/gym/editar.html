@@ -1,0 +1,58 @@
+{% extends 'index.html'%}
+
+{% block content %}
+<div class="pagetitle">
+    <h1>Información de Gimnasios</h1>
+</div>
+
+<section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Edición</h5>
+
+            <form class="row g-3 needs-validation" method="POST" action="/gym/update" novalidate>
+                <input type="hidden" value="{{ gym.id }}" name="idGym"/>
+                <div class="col-md-6">
+                    <label for="validationCustom02" class="form-label">Nombre del Gimnasio</label>
+                    <input type="text" class="form-control" name="nom" required value="{{ gym.nombre }}">
+                </div>
+
+                <div class="col-md-6">  
+                    <label for="desc" class="form-label">Descripción del Gimnasio</label>
+                    <textarea class="form-control" style="height: 30px" name="desc" required>{{ gym.descripcion }}</textarea>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="validationCustom01" class="form-label">Latitud</label>
+                    <input type="number" step="0.0000001" class="form-control" name="lat" required value="{{ gym.latitud }}">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="validationCustom02" class="form-label">Longitud</label>
+                    <input type="number" step="0.0000001" class="form-control" name="long" required value="{{ gym.longitud }}">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="validationCustom02" class="form-label">Número de Estrellas</label>
+                    <input type="number" step="0.1" min="0" class="form-control" name="nroStars" required value="{{ gym.nroEstrellas }}">
+                </div>
+                
+                <div class="form-inline">
+                    <div class="col-sm-6">
+                        <button class="btn btn-success rounded-pill" type="submit">Guardar</button>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <a href="/gym/list" class="btn btn-danger rounded-pill">Cancelar</a>
+                    </div> 
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}
