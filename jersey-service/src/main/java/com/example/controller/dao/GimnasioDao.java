@@ -1,5 +1,4 @@
 package com.example.controller.dao;
-import com.example.controller.tda.graph.GraphLabelNoDirect;
 import com.example.controller.tda.list.LinkedList;
 import com.example.controller.dao.implement.AdapterDao;
 import com.example.models.Gimnasio;
@@ -7,9 +6,6 @@ import com.example.models.Gimnasio;
 public class GimnasioDao extends AdapterDao<Gimnasio> {
     private Gimnasio gimnasio;
     private LinkedList<Gimnasio> listAll;
-    private GraphLabelNoDirect graph;
-    private LinkedList<String> vertex;
-    private String nombre = "GimnasioGrafo.json";
 
     //CONSTRUCTOR
     public GimnasioDao() {

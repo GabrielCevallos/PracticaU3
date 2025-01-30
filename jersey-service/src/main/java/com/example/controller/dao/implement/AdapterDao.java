@@ -10,7 +10,7 @@ import com.example.controller.tda.list.LinkedList;
 
 public abstract class AdapterDao<T> implements InterfazDao<T> {
     private Class<?> clazz;
-    private Gson g;
+    protected Gson g;
     public static String URL = "./media/";
     
     //CONSTRUCTOR VACIO
