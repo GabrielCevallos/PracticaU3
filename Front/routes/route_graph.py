@@ -35,7 +35,7 @@ def graph(msg=''):
         popup_html = f"""
         <b>{gym['nombre']}</b><br>
         {gym['descripcion']}<br>
-        Latitud: {gym['latitud']}, Longitud: {gym['longitud']}<br>Rating: {gym['nroEstrellas']}
+        Latitud: {gym['latitud']}, Longitud: {gym['longitud']}<br>Rating: {gym['nroEstrellas']} Estrellas
         """
         folium.Marker(
             location=(gym['latitud'], gym['longitud']),
