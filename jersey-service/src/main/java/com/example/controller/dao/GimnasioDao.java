@@ -1,4 +1,5 @@
 package com.example.controller.dao;
+import com.example.controller.tda.graph.GraphLabelDirect;
 import com.example.controller.tda.list.LinkedList;
 import com.example.controller.dao.implement.AdapterDao;
 import com.example.models.Gimnasio;
@@ -104,5 +105,19 @@ public class GimnasioDao extends AdapterDao<Gimnasio> {
         Double distancia = 2 * earthRadius * Math.asin(Math.sqrt(Math.pow(Math.sin(latitudF / 2), 2) + Math.cos(latitud1) * Math.cos(latitud2) * Math.pow(Math.sin(longitudF / 2), 2)));
         
         return distancia;
+    }
+
+    //CALCULAR ADYACENCIAS
+    public String calcularAdjs(Integer v1, Integer v2) throws Exception {
+        GraphLabelDirect<Object> graph = graphFromJson(Gimnasio.class, true);
+        Gimnasio gym1 = (Gimnasio)graph.getLabelL(v1);
+        Gimnasio gym2 = (Gimnasio)graph.getLabelL(v2);
+        Float distancia = distanciaHaversine(gym1, gym2).floatValue();
+        graph.addEdge(v1, v2, distancia);
+        saveFile(graph.grafoJson(), "GraphGimnasio");
+        if(distancia.isNaN()) {
+            return "No se puede calcular la distancia entre los gimnasios";
+        }
+        return "La distancia entre los gimnasios es de: " + distancia + " km";
     }
 }

@@ -14,6 +14,8 @@ import javax.ws.rs.core.Response.Status;
 import com.google.gson.Gson;
 
 import com.example.controller.dao.services.GimnasioServices;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @Path("gym")
@@ -21,12 +23,14 @@ public class GimnasioApi {
     @Path("/list")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAll() {
+    public Response getAll() throws Exception {
         HashMap<String, Object> map = new HashMap<>();
         GimnasioServices gym = new GimnasioServices();
+        ObjectMapper om = new ObjectMapper();
         try {
             map.put("status", "OK");
             map.put("data", gym.listAll().toArray());
+            return Response.ok(om.writeValueAsString(map)).build();
         } catch (Exception e) {
             e.printStackTrace();
             map.put("status", "ERROR");
@@ -36,20 +40,22 @@ public class GimnasioApi {
             map.put("status", "OK");
             map.put("data", new Object[] {});
         }
-        return Response.ok(map).build();
+        return Response.ok(om.writeValueAsString(map)).build();
     }
 
 
     @Path("/get/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response get(@PathParam("id") Integer id) {
+    public Response get(@PathParam("id") Integer id) throws JsonProcessingException {
         HashMap<String, Object> map = new HashMap<>();
         GimnasioServices gym = new GimnasioServices();
+        ObjectMapper om = new ObjectMapper();
         try {
             gym.setGimnasio(gym.get(id));
             map.put("status", "OK");
             map.put("data", gym.getGimnasio());
+            return Response.ok(om.writeValueAsString(map)).build();
         } catch (Exception e) {
             e.printStackTrace();
             map.put("status", "ERROR");
@@ -59,7 +65,7 @@ public class GimnasioApi {
             map.put("data", "No existe Gimnasio con ese identificador");
             return Response.status(Status.BAD_REQUEST).entity(map).build();
         }
-        return Response.ok(map).build();
+        return Response.ok(om.writeValueAsString(map)).build();
     }
 
 
@@ -130,6 +136,25 @@ public class GimnasioApi {
             gym.deleteGimnasio(id);
             map.put("status", "OK");
             map.put("data", "Gimnasio eliminado correctamente");
+            return Response.ok(map).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("status", "ERROR");
+            map.put("data", e.getMessage());
+            return Response.status(Status.INTERNAL_SERVER_ERROR).entity(map).build();
+        }
+    }
+
+
+    @Path("/calcularAdjs/{v1}/{v2}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response calcularAdjs(@PathParam("v1") Integer v1, @PathParam("v2") Integer v2) {
+        HashMap<String, Object> map = new HashMap<>();
+        GimnasioServices gym = new GimnasioServices();
+        try {
+            map.put("status", "OK");
+            map.put("data", gym.calcularAdjs(v1, v2));
             return Response.ok(map).build();
         } catch (Exception e) {
             e.printStackTrace();

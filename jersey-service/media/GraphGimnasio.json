@@ -15,10 +15,24 @@
       "latitud": -3.9937509,
       "longitud": -79.1998474,
       "nroEstrellas": 4.9
+    },
+    "v3": {
+      "id": 8,
+      "nombre": "Tilin Gym",
+      "descripcion": "apeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "latitud": -3.9937509,
+      "longitud": -79.1998474,
+      "nroEstrellas": 4.9
     }
   },
   "adjacencies": {
-    "v1": [],
-    "v2": []
+    "v1": [
+      {
+        "destination": 3,
+        "weight": 4.3486624
+      }
+    ],
+    "v2": [],
+    "v3": []
   }
 }

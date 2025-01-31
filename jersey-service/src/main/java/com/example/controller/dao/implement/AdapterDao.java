@@ -133,6 +133,13 @@ public abstract class AdapterDao<T> implements InterfazDao<T> {
         return graphFromJson(class1,false);
     } 
     
+    public void saveGrafoJson(T obj, Class<?> class1, Integer destination, Float weight) throws Exception {
+        GraphLabelDirect<Object> graph = graphFromJson(class1);
+        graph.labelsVertices(graph.nroVertices(), obj);
+        graph.addEdge(graph.nroVertices(), destination, weight);
+        saveFile(graph.grafoJson(), "Graph" + class1.getSimpleName());
+    }
+
     public void saveGrafoJson(T obj, Class<?> class1) throws Exception {
         GraphLabelDirect<Object> graph = graphFromJson(class1);
         graph.labelsVertices(graph.nroVertices(), obj);
@@ -140,7 +147,7 @@ public abstract class AdapterDao<T> implements InterfazDao<T> {
     }
 
     //GUARDAR EL ARCHIVO JSON
-    private void saveFile(Object data, String className) throws Exception {
+    protected void saveFile(Object data, String className) throws Exception {
         final String json = new GsonBuilder().setPrettyPrinting().create().toJson(data);
 
         final String fileName = URL + className + ".json";

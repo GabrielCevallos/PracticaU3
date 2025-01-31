@@ -41,4 +41,8 @@ public class GimnasioServices {
     public Boolean deleteGimnasio(Integer id) throws Exception {
         return obj.deleteGimnasio(id);
     }
+
+    public String calcularAdjs(Integer v1, Integer v2) throws Exception {
+        return obj.calcularAdjs(v1, v2);
+    }
 }
