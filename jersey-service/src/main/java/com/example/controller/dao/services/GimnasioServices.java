@@ -1,5 +1,6 @@
 package com.example.controller.dao.services;
 
+import com.example.controller.tda.graph.GraphLabelDirect;
 import com.example.controller.tda.list.LinkedList;
 import com.example.controller.dao.GimnasioDao;
 import com.example.models.Gimnasio;

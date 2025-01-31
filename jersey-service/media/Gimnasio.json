@@ -11,32 +11,32 @@
     "id": 2,
     "nombre": "Arnold Gym",
     "descripcion": "Eterno padre de los gimnasios de Loja",
-    "latitud": -3.9976078,
-    "longitud": -79.2016861,
+    "latitud": -3.9976132,
+    "longitud": -79.1991058,
     "nroEstrellas": 4.8
   },
   {
     "id": 3,
     "nombre": "Total Flex Gym",
     "descripcion": "¡El gimnasio más grande de la ciudad!",
-    "latitud": -4.0096489,
-    "longitud": -79.2052323,
+    "latitud": -4.0096479,
+    "longitud": -79.2029454,
     "nroEstrellas": 4.7
   },
   {
     "id": 4,
     "nombre": "Equilibrium Club",
     "descripcion": "El gimnasio más caro que conozco",
-    "latitud": -3.9806329,
-    "longitud": -79.2049701,
+    "latitud": -3.9806503,
+    "longitud": -79.2026513,
     "nroEstrellas": 3.0
   },
   {
     "id": 5,
     "nombre": "JS Fitness Center",
     "descripcion": "Nunca he ido xd",
-    "latitud": -3.9934054,
-    "longitud": -79.2100387,
+    "latitud": -3.9934129,
+    "longitud": -79.2053176,
     "nroEstrellas": 4.7
   },
   {
