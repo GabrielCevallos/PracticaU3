@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_46d309b37cb1f312a551e0014dc215a2 {
+                #map_cf7477070edca0ee0d5a67753cacceef {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -35,18 +35,21 @@
                 .leaflet-container { font-size: 1rem; }
             </style>
         
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
 </head>
 <body>
     
     
-            <div class="folium-map" id="map_46d309b37cb1f312a551e0014dc215a2" ></div>
+            <div class="folium-map" id="map_cf7477070edca0ee0d5a67753cacceef" ></div>
         
 </body>
 <script>
     
     
-            var map_46d309b37cb1f312a551e0014dc215a2 = L.map(
-                "map_46d309b37cb1f312a551e0014dc215a2",
+            var map_cf7477070edca0ee0d5a67753cacceef = L.map(
+                "map_cf7477070edca0ee0d5a67753cacceef",
                 {
                     center: [-4.0024294, -79.2017861],
                     crs: L.CRS.EPSG3857,
@@ -63,7 +66,7 @@
 
         
     
-            var tile_layer_cafa8937a7c4f8aaab7b1e3c7a64341f = L.tileLayer(
+            var tile_layer_254c3722fbeba8f5780248b41432f3c0 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -80,31 +83,254 @@
             );
         
     
-            tile_layer_cafa8937a7c4f8aaab7b1e3c7a64341f.addTo(map_46d309b37cb1f312a551e0014dc215a2);
+            tile_layer_254c3722fbeba8f5780248b41432f3c0.addTo(map_cf7477070edca0ee0d5a67753cacceef);
         
     
-            var marker_9e0e0feac7c74f36b0b718e3cd9fb6b9 = L.marker(
+            var marker_cluster_861329aebcf96f87844b22a38d7345ba = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_75131fbae32fe5ebe2fb54fdf458e7c5 = L.marker(
                 [-4.0024294, -79.2017861],
                 {
 }
-            ).addTo(map_46d309b37cb1f312a551e0014dc215a2);
+            ).addTo(marker_cluster_861329aebcf96f87844b22a38d7345ba);
         
     
-        var popup_b90982b76f76ea83309349f99069554f = L.popup({
-  "maxWidth": "100%",
+        var popup_465ca966197b850e4f7d248269f181d3 = L.popup({
+  "maxWidth": 300,
 });
 
         
             
-                var html_803ff3d249b70ac7077204df09919423 = $(`<div id="html_803ff3d249b70ac7077204df09919423" style="width: 100.0%; height: 100.0%;">{'id': 1, 'nombre': 'Leader Gym', 'descripcion': '¡El mejor gimnasio de la ciudad!', 'latitud': -4.0024294, 'longitud': -79.2017861, 'nroEstrellas': 5.0, 'numero': 1}</div>`)[0];
-                popup_b90982b76f76ea83309349f99069554f.setContent(html_803ff3d249b70ac7077204df09919423);
+                var html_2ef6b74e60e0f6bc1d440577e6a9aa00 = $(`<div id="html_2ef6b74e60e0f6bc1d440577e6a9aa00" style="width: 100.0%; height: 100.0%;">         <b>Leader Gym</b><br>         ¡El mejor gimnasio de la ciudad!<br>         Latitud: -4.0024294, Longitud: -79.2017861<br>Rating: 5.0         </div>`)[0];
+                popup_465ca966197b850e4f7d248269f181d3.setContent(html_2ef6b74e60e0f6bc1d440577e6a9aa00);
             
         
 
-        marker_9e0e0feac7c74f36b0b718e3cd9fb6b9.bindPopup(popup_b90982b76f76ea83309349f99069554f)
+        marker_75131fbae32fe5ebe2fb54fdf458e7c5.bindPopup(popup_465ca966197b850e4f7d248269f181d3)
         ;
 
         
     
+    
+            marker_75131fbae32fe5ebe2fb54fdf458e7c5.bindTooltip(
+                `<div>
+                     Leader Gym
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_27306a3d7b0a2c86b01ebd2b49f9bb7b = L.marker(
+                [-3.9976132, -79.1991058],
+                {
+}
+            ).addTo(marker_cluster_861329aebcf96f87844b22a38d7345ba);
+        
+    
+        var popup_1a1c058bdea93021b60a95a45a3b9243 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_78439092668fda58bf4a909aa79532cf = $(`<div id="html_78439092668fda58bf4a909aa79532cf" style="width: 100.0%; height: 100.0%;">         <b>Arnold Gym</b><br>         Eterno padre de los gimnasios de Loja<br>         Latitud: -3.9976132, Longitud: -79.1991058<br>Rating: 4.8         </div>`)[0];
+                popup_1a1c058bdea93021b60a95a45a3b9243.setContent(html_78439092668fda58bf4a909aa79532cf);
+            
+        
+
+        marker_27306a3d7b0a2c86b01ebd2b49f9bb7b.bindPopup(popup_1a1c058bdea93021b60a95a45a3b9243)
+        ;
+
+        
+    
+    
+            marker_27306a3d7b0a2c86b01ebd2b49f9bb7b.bindTooltip(
+                `<div>
+                     Arnold Gym
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_33568ad4cc5d24317beebd2451bbed35 = L.marker(
+                [-4.0096479, -79.2029454],
+                {
+}
+            ).addTo(marker_cluster_861329aebcf96f87844b22a38d7345ba);
+        
+    
+        var popup_13b4c27a6eb857fff2abfcccea90405e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6ab79150d6434174e0061e3d3318accb = $(`<div id="html_6ab79150d6434174e0061e3d3318accb" style="width: 100.0%; height: 100.0%;">         <b>Total Flex Gym</b><br>         ¡El gimnasio más grande de la ciudad!<br>         Latitud: -4.0096479, Longitud: -79.2029454<br>Rating: 4.7         </div>`)[0];
+                popup_13b4c27a6eb857fff2abfcccea90405e.setContent(html_6ab79150d6434174e0061e3d3318accb);
+            
+        
+
+        marker_33568ad4cc5d24317beebd2451bbed35.bindPopup(popup_13b4c27a6eb857fff2abfcccea90405e)
+        ;
+
+        
+    
+    
+            marker_33568ad4cc5d24317beebd2451bbed35.bindTooltip(
+                `<div>
+                     Total Flex Gym
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a4c6922620df13f710dfcd64ce3a0eca = L.marker(
+                [-3.9806503, -79.2026513],
+                {
+}
+            ).addTo(marker_cluster_861329aebcf96f87844b22a38d7345ba);
+        
+    
+        var popup_63b82b11c17ae5487d56993d660ecd18 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5f5bba82b6715e8f3a95313856daa895 = $(`<div id="html_5f5bba82b6715e8f3a95313856daa895" style="width: 100.0%; height: 100.0%;">         <b>Equilibrium Club</b><br>         El gimnasio más caro que conozco<br>         Latitud: -3.9806503, Longitud: -79.2026513<br>Rating: 3.0         </div>`)[0];
+                popup_63b82b11c17ae5487d56993d660ecd18.setContent(html_5f5bba82b6715e8f3a95313856daa895);
+            
+        
+
+        marker_a4c6922620df13f710dfcd64ce3a0eca.bindPopup(popup_63b82b11c17ae5487d56993d660ecd18)
+        ;
+
+        
+    
+    
+            marker_a4c6922620df13f710dfcd64ce3a0eca.bindTooltip(
+                `<div>
+                     Equilibrium Club
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1e901b785ca3410e22018ef2fbb45f2e = L.marker(
+                [-3.9934129, -79.2053176],
+                {
+}
+            ).addTo(marker_cluster_861329aebcf96f87844b22a38d7345ba);
+        
+    
+        var popup_864d17124c2d3ec1522f0cf6e43a6236 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a97b5d57630986a73373bce7e31c5dfe = $(`<div id="html_a97b5d57630986a73373bce7e31c5dfe" style="width: 100.0%; height: 100.0%;">         <b>JS Fitness Center</b><br>         Nunca he ido xd<br>         Latitud: -3.9934129, Longitud: -79.2053176<br>Rating: 4.7         </div>`)[0];
+                popup_864d17124c2d3ec1522f0cf6e43a6236.setContent(html_a97b5d57630986a73373bce7e31c5dfe);
+            
+        
+
+        marker_1e901b785ca3410e22018ef2fbb45f2e.bindPopup(popup_864d17124c2d3ec1522f0cf6e43a6236)
+        ;
+
+        
+    
+    
+            marker_1e901b785ca3410e22018ef2fbb45f2e.bindTooltip(
+                `<div>
+                     JS Fitness Center
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_31d1fcf6f649345651f2af361633c1e0 = L.marker(
+                [-4.032669, -79.2032395],
+                {
+}
+            ).addTo(marker_cluster_861329aebcf96f87844b22a38d7345ba);
+        
+    
+        var popup_d0b908c46fe584455f77fdd262dc2e44 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_48b88c890e0c1751d1022df2e6b4bdb5 = $(`<div id="html_48b88c890e0c1751d1022df2e6b4bdb5" style="width: 100.0%; height: 100.0%;">         <b>Titanus Fitness Sur</b><br>         Solo fui una vez, ta bien<br>         Latitud: -4.032669, Longitud: -79.2032395<br>Rating: 4.9         </div>`)[0];
+                popup_d0b908c46fe584455f77fdd262dc2e44.setContent(html_48b88c890e0c1751d1022df2e6b4bdb5);
+            
+        
+
+        marker_31d1fcf6f649345651f2af361633c1e0.bindPopup(popup_d0b908c46fe584455f77fdd262dc2e44)
+        ;
+
+        
+    
+    
+            marker_31d1fcf6f649345651f2af361633c1e0.bindTooltip(
+                `<div>
+                     Titanus Fitness Sur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_23d252c73b3488611c5be66ecb3a4829 = L.marker(
+                [-3.9937509, -79.1998474],
+                {
+}
+            ).addTo(marker_cluster_861329aebcf96f87844b22a38d7345ba);
+        
+    
+        var popup_869b8edabfcc74a64b74155e21c79586 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_91427f8fe710ecfffdebd3009e758b19 = $(`<div id="html_91427f8fe710ecfffdebd3009e758b19" style="width: 100.0%; height: 100.0%;">         <b>Titanus Fitness Centro</b><br>         Aqui levanté mancuernas de 60lbs en press de banca inclinado, buen gimnasio<br>         Latitud: -3.9937509, Longitud: -79.1998474<br>Rating: 4.9         </div>`)[0];
+                popup_869b8edabfcc74a64b74155e21c79586.setContent(html_91427f8fe710ecfffdebd3009e758b19);
+            
+        
+
+        marker_23d252c73b3488611c5be66ecb3a4829.bindPopup(popup_869b8edabfcc74a64b74155e21c79586)
+        ;
+
+        
+    
+    
+            marker_23d252c73b3488611c5be66ecb3a4829.bindTooltip(
+                `<div>
+                     Titanus Fitness Centro
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            marker_cluster_861329aebcf96f87844b22a38d7345ba.addTo(map_cf7477070edca0ee0d5a67753cacceef);
+        
 </script>
 </html>
