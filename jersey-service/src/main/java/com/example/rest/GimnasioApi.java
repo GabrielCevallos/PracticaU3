@@ -163,4 +163,42 @@ public class GimnasioApi {
             return Response.status(Status.INTERNAL_SERVER_ERROR).entity(map).build();
         }
     }
+
+    @Path("/floydW")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response floydW() {
+        HashMap<String, Object> map = new HashMap<>();
+        GimnasioServices gym = new GimnasioServices();
+        try {
+            gym.floydW();
+            map.put("status", "OK");
+            map.put("data", "Matriz de adyacencia actualizada correctamente");
+            return Response.ok(map).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("status", "ERROR");
+            map.put("data", e.getMessage());
+            return Response.status(Status.INTERNAL_SERVER_ERROR).entity(map).build();
+        }
+    }
+
+    @Path("/bellmanF/{v}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response bellmanF(@PathParam("v") Integer v) {
+        HashMap<String, Object> map = new HashMap<>();
+        GimnasioServices gym = new GimnasioServices();
+        try {
+            gym.bellmanF(v);
+            map.put("status", "OK");
+            map.put("data", "Matriz de adyacencia actualizada correctamente");
+            return Response.ok(map).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("status", "ERROR");
+            map.put("data", e.getMessage());
+            return Response.status(Status.INTERNAL_SERVER_ERROR).entity(map).build();
+        }
+    }
 }

@@ -1,4 +1,5 @@
 package com.example.controller.dao;
+import com.example.controller.tda.graph.Adyacencia;
 import com.example.controller.tda.graph.GraphLabelDirect;
 import com.example.controller.tda.list.LinkedList;
 import com.example.controller.dao.implement.AdapterDao;
@@ -119,5 +120,19 @@ public class GimnasioDao extends AdapterDao<Gimnasio> {
             return "No se puede calcular la distancia entre los gimnasios";
         }
         return "La distancia entre los gimnasios es de: " + distancia + " km";
+    }
+
+    //IMPLEMENTACION DE FLOYD 
+    public void floydW() throws Exception {
+        GraphLabelDirect<Object> graph = graphFromJson(Gimnasio.class, true);
+        graph.floydW();
+        saveFile(graph.grafoJson(), "GraphGimnasio");
+    }
+
+    //IMPLEMENTACION DE BELLMAN FORD
+    public void bellmanF(Integer v) throws Exception {
+        GraphLabelDirect<Object> graph = graphFromJson(Gimnasio.class, true);
+        graph.bellmanF(v);
+        saveFile(graph.grafoJson(), "GraphGimnasio");
     }
 }

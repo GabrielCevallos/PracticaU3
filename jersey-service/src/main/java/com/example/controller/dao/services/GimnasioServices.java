@@ -45,4 +45,12 @@ public class GimnasioServices {
     public String calcularAdjs(Integer v1, Integer v2) throws Exception {
         return obj.calcularAdjs(v1, v2);
     }
+
+    public void floydW() throws Exception {
+        obj.floydW();
+    }
+
+    public void bellmanF(Integer v) throws Exception {
+        obj.bellmanF(v);
+    }
 }
