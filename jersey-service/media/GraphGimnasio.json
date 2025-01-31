@@ -1,6 +1,46 @@
 {
   "vertices": {
     "v1": {
+      "id": 1,
+      "nombre": "Leader Gym",
+      "descripcion": "¡El mejor gimnasio de la ciudad!",
+      "latitud": -4.0024294,
+      "longitud": -79.2017861,
+      "nroEstrellas": 5.0
+    },
+    "v2": {
+      "id": 2,
+      "nombre": "Arnold Gym",
+      "descripcion": "Eterno padre de los gimnasios de Loja",
+      "latitud": -3.9976078,
+      "longitud": -79.2016861,
+      "nroEstrellas": 4.8
+    },
+    "v3": {
+      "id": 3,
+      "nombre": "Total Flex Gym",
+      "descripcion": "¡El gimnasio más grande de la ciudad!",
+      "latitud": -4.0096489,
+      "longitud": -79.2052323,
+      "nroEstrellas": 4.7
+    },
+    "v4": {
+      "id": 4,
+      "nombre": "Equilibrium Club",
+      "descripcion": "El gimnasio más caro que conozco",
+      "latitud": -3.9806329,
+      "longitud": -79.2049701,
+      "nroEstrellas": 3.0
+    },
+    "v5": {
+      "id": 5,
+      "nombre": "JS Fitness Center",
+      "descripcion": "Nunca he ido xd",
+      "latitud": -3.9934054,
+      "longitud": -79.2100387,
+      "nroEstrellas": 4.7
+    },
+    "v6": {
       "id": 6,
       "nombre": "Titanus Fitness Sur",
       "descripcion": "Solo fui una vez, ta bien",
@@ -8,18 +48,10 @@
       "longitud": -79.2032395,
       "nroEstrellas": 4.9
     },
-    "v2": {
+    "v7": {
       "id": 7,
       "nombre": "Titanus Fitness Centro",
       "descripcion": "Aqui levanté mancuernas de 60lbs en press de banca inclinado, buen gimnasio",
-      "latitud": -3.9937509,
-      "longitud": -79.1998474,
-      "nroEstrellas": 4.9
-    },
-    "v3": {
-      "id": 8,
-      "nombre": "Tilin Gym",
-      "descripcion": "apeeeeeeeeeeeeeeeeeeeeeeeeeeee",
       "latitud": -3.9937509,
       "longitud": -79.1998474,
       "nroEstrellas": 4.9
@@ -28,11 +60,213 @@
   "adjacencies": {
     "v1": [
       {
+        "destination": 1,
+        "weight": 0.0
+      },
+      {
+        "destination": 2,
+        "weight": 0.5368498
+      },
+      {
         "destination": 3,
-        "weight": 4.3486624
+        "weight": 0.8901298
+      },
+      {
+        "destination": 4,
+        "weight": 2.4519885
+      },
+      {
+        "destination": 5,
+        "weight": 1.3597629
+      },
+      {
+        "destination": 6,
+        "weight": 3.370104
+      },
+      {
+        "destination": 7,
+        "weight": 0.9897782
       }
     ],
-    "v2": [],
-    "v3": []
+    "v2": [
+      {
+        "destination": 1,
+        "weight": 0.5368498
+      },
+      {
+        "destination": 2,
+        "weight": 0.0
+      },
+      {
+        "destination": 3,
+        "weight": 1.3970507
+      },
+      {
+        "destination": 4,
+        "weight": 1.9244955
+      },
+      {
+        "destination": 5,
+        "weight": 1.0388343
+      },
+      {
+        "destination": 6,
+        "weight": 3.9067824
+      },
+      {
+        "destination": 7,
+        "weight": 0.47542503
+      }
+    ],
+    "v3": [
+      {
+        "destination": 1,
+        "weight": 0.8901298
+      },
+      {
+        "destination": 2,
+        "weight": 1.3970507
+      },
+      {
+        "destination": 3,
+        "weight": 0.0
+      },
+      {
+        "destination": 4,
+        "weight": 3.2301588
+      },
+      {
+        "destination": 5,
+        "weight": 1.885336
+      },
+      {
+        "destination": 6,
+        "weight": 2.572108
+      },
+      {
+        "destination": 7,
+        "weight": 1.8680428
+      }
+    ],
+    "v4": [
+      {
+        "destination": 7,
+        "weight": 1.5671744
+      },
+      {
+        "destination": 6,
+        "weight": 5.7957854
+      },
+      {
+        "destination": 5,
+        "weight": 1.5291792
+      },
+      {
+        "destination": 4,
+        "weight": 0.0
+      },
+      {
+        "destination": 3,
+        "weight": 3.2301588
+      },
+      {
+        "destination": 2,
+        "weight": 1.9244955
+      },
+      {
+        "destination": 1,
+        "weight": 2.4519885
+      }
+    ],
+    "v5": [
+      {
+        "destination": 1,
+        "weight": 1.3597629
+      },
+      {
+        "destination": 2,
+        "weight": 1.0388343
+      },
+      {
+        "destination": 3,
+        "weight": 1.885336
+      },
+      {
+        "destination": 4,
+        "weight": 1.5291792
+      },
+      {
+        "destination": 5,
+        "weight": 0.0
+      },
+      {
+        "destination": 6,
+        "weight": 4.435512
+      },
+      {
+        "destination": 7,
+        "weight": 1.1323824
+      }
+    ],
+    "v6": [
+      {
+        "destination": 7,
+        "weight": 4.3486624
+      },
+      {
+        "destination": 6,
+        "weight": 0.0
+      },
+      {
+        "destination": 5,
+        "weight": 4.435512
+      },
+      {
+        "destination": 4,
+        "weight": 5.7957854
+      },
+      {
+        "destination": 3,
+        "weight": 2.572108
+      },
+      {
+        "destination": 2,
+        "weight": 3.9067824
+      },
+      {
+        "destination": 1,
+        "weight": 3.370104
+      }
+    ],
+    "v7": [
+      {
+        "destination": 1,
+        "weight": 0.9897782
+      },
+      {
+        "destination": 2,
+        "weight": 0.47542503
+      },
+      {
+        "destination": 3,
+        "weight": 1.8680428
+      },
+      {
+        "destination": 4,
+        "weight": 1.5671744
+      },
+      {
+        "destination": 5,
+        "weight": 1.1323824
+      },
+      {
+        "destination": 6,
+        "weight": 4.3486624
+      },
+      {
+        "destination": 7,
+        "weight": 0.0
+      }
+    ]
   }
 }
