@@ -41,6 +41,7 @@ public class GimnasioDao extends AdapterDao<Gimnasio> {
         if(!checkNroStars()) {
             throw new Exception("El número de estrellas debe ser entre 0 y 5");
         }
+        saveGrafoJson(this.gimnasio, gimnasio.getClass());
         this.persist(this.gimnasio);
         this.listAll = listAll();
         return true;

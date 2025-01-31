@@ -38,5 +38,21 @@
     "latitud": -3.9934054,
     "longitud": -79.2100387,
     "nroEstrellas": 4.7
+  },
+  {
+    "id": 6,
+    "nombre": "Titanus Fitness Sur",
+    "descripcion": "Solo fui una vez, ta bien",
+    "latitud": -4.032669,
+    "longitud": -79.2032395,
+    "nroEstrellas": 4.9
+  },
+  {
+    "id": 7,
+    "nombre": "Titanus Fitness Centro",
+    "descripcion": "Aqui levanté mancuernas de 60lbs en press de banca inclinado, buen gimnasio",
+    "latitud": -3.9937509,
+    "longitud": -79.1998474,
+    "nroEstrellas": 4.9
   }
 ]

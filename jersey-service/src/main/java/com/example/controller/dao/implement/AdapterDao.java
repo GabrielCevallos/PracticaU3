@@ -6,11 +6,16 @@ import java.io.FileWriter;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.example.controller.tda.graph.GraphLabelDirect;
 import com.example.controller.tda.list.LinkedList;
 
 public abstract class AdapterDao<T> implements InterfazDao<T> {
     private Class<?> clazz;
     protected Gson g;
+    protected String className;
     public static String URL = "./media/";
     
     //CONSTRUCTOR VACIO
@@ -76,6 +81,64 @@ public abstract class AdapterDao<T> implements InterfazDao<T> {
         
     }
 
+    //GUARDAR EN EL GRAFO JSON
+    public static JsonElement graphToJson(GraphLabelDirect<?> labeledGraph) {
+        return labeledGraph.grafoJson();
+    }
+
+    public static GraphLabelDirect<Object> graphFromJson(Class<?> classs, Boolean check) throws Exception {
+        String grafog = classs.getSimpleName();
+        JsonElement element = null;
+        try {
+            element = new Gson().fromJson(readFile("Graph" + grafog), JsonElement.class);
+        } catch (Exception e) {
+            e.getMessage();
+            e.printStackTrace();
+        }
+
+        boolean nullElement = element == null;
+
+        if (nullElement) {
+            return new GraphLabelDirect<>(1, Object.class);
+        }
+
+        
+        JsonObject vertices = element.getAsJsonObject().get("vertices").getAsJsonObject();
+
+        Integer nroVertices = (check) ? vertices.size() : vertices.size() + 1;
+        
+        GraphLabelDirect<Object> graph = new GraphLabelDirect<>(nroVertices, Object.class);
+
+        Gson gson = new Gson();
+        for (int j = 0; j < vertices.size(); j++) {
+            JsonObject obj = vertices.get("v" + Integer.toString(j + 1)).getAsJsonObject();
+            graph.labelsVertices(j + 1, gson.fromJson(obj.toString(), classs));
+        }
+
+        JsonObject obj = element.getAsJsonObject().get("adjacencies").getAsJsonObject();
+        for (int j = 1; j <= obj.size(); j++) {
+            String key = "v" + Integer.toString(j);
+            JsonArray adjs = obj.get(key).getAsJsonArray();
+            
+            for (int i = 0; i < adjs.size(); i++) {
+                JsonObject adjacency = adjs.get(i).getAsJsonObject();
+                graph.addEdge(j, adjacency.get("destination").getAsInt(), adjacency.get("weight").getAsFloat());
+            }
+        }
+        
+        return graph;
+    }
+
+    public static GraphLabelDirect<Object> graphFromJson(Class<?> class1) throws Exception {
+        return graphFromJson(class1,false);
+    } 
+    
+    public void saveGrafoJson(T obj, Class<?> class1) throws Exception {
+        GraphLabelDirect<Object> graph = graphFromJson(class1);
+        graph.labelsVertices(graph.nroVertices(), obj);
+        saveFile(graph.grafoJson(), "Graph" + class1.getSimpleName());
+    }
+
     //GUARDAR EL ARCHIVO JSON
     private void saveFile(Object data, String className) throws Exception {
         final String json = new GsonBuilder().setPrettyPrinting().create().toJson(data);
@@ -85,7 +148,8 @@ public abstract class AdapterDao<T> implements InterfazDao<T> {
             f.write(json);
             f.flush();
         } catch (Exception e) {
-            System.out.println("JsonFileManager.saveFile() dice: " + e.getMessage());
+            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -100,7 +164,8 @@ public abstract class AdapterDao<T> implements InterfazDao<T> {
             }
             return sb.toString();
         } catch (Exception e) {
-            System.out.println("JsonFileManager.readFile(str) dice: " + e.getMessage());
+            e.getMessage();
+            e.printStackTrace();
             return "";
         }
     }

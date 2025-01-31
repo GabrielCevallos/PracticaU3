@@ -79,7 +79,7 @@ public class GimnasioApi {
             gym.getGimnasio().setLatitud(Double.parseDouble(map.get("latitud").toString()));
             gym.getGimnasio().setLongitud(Double.parseDouble(map.get("longitud").toString()));
             gym.getGimnasio().setNroEstrellas(Float.parseFloat(map.get("nroEstrellas").toString()));
-            gym.save();
+            gym.save(a);
             res.put("status", "OK");
             res.put("data", "Gimnasio registrado correctamente");
             return Response.ok(res).build();
@@ -107,7 +107,7 @@ public class GimnasioApi {
             gym.getGimnasio().setLatitud(Double.parseDouble(map.get("latitud").toString()));
             gym.getGimnasio().setLongitud(Double.parseDouble(map.get("longitud").toString()));
             gym.getGimnasio().setNroEstrellas(Float.parseFloat(map.get("nroEstrellas").toString()));
-            gym.update();
+            gym.update(new Gson().toJson(gym.getGimnasio()));
             res.put("status", "OK");
             res.put("data", "Gimnasio actualizado correctamente");
             return Response.ok(res).build();

@@ -221,47 +221,44 @@ public class GraphLabelDirect<E> extends GraphDirect {
 
     public void bellmanF(int source) {
         float[] distancia = new float[nroVertices() + 1];
-
         for (int i = 0; i < distancia.length; i++) distancia[i] = Float.POSITIVE_INFINITY;
-
-
         distancia[source] = 0;
+        //RELAX
         for (int i = 1; i <= nroVertices() - 1; i++) {
             for (int u = 1; u <= nroVertices(); u++) {
                 for (Adyacencia adj : adyacencias(u).toArray()) {
                     int v = adj.getDestination();
                     float weight = adj.getWeight();
                     if (distancia[u] != Float.POSITIVE_INFINITY && distancia[u] + weight < distancia[v]) {
-                        distancia[v] = distancia[u] + weight;
-                    }
+                        distancia[v] = distancia[u] + weight;}
                 }
             }
         }
-
+        //CONOCER SI UN CICLO ES NEGATIVO
         for (int u = 1; u <= nroVertices(); u++) {
             for (Adyacencia adj : adyacencias(u).toArray()) {
                 int v = adj.getDestination();
                 float weight = adj.getWeight();
                 if (distancia[u] != Float.POSITIVE_INFINITY && distancia[u] + weight < distancia[v]) {
-                    System.out.println("El grafo contiene un ciclo negativo");
+                    System.out.println("Peso negativo");
                     return;
                 }
             }
         }
-
-        System.out.println("Distancias más cortas desde el vértice " + source + ":");
+        //IMPRIMIR
+        System.out.println("Distancia más corta iniciando en el vértice: " + source);
         for (int i = 1; i <= nroVertices(); i++) {
             if (distancia[i] == Float.POSITIVE_INFINITY) {
-                System.out.println("V" + i + " : INFINITO");
+                System.out.println("V" + i + " = No hay camino");
             } else {
-                System.out.println("V" + i + " : " + distancia[i]);
+                System.out.println("V" + i + " = " + distancia[i]);
             }
         }
     }
 
     public void floydW() throws Exception {
         float[][] distance = new float[nroVertices() + 1][nroVertices() + 1];
-
+        //INICIALIZAR MATRIZ
         for (int i = 1; i <= nroVertices(); i++) {
             for (int j = 1; j <= nroVertices(); j++) {
                 if (i == j) {
@@ -271,13 +268,13 @@ public class GraphLabelDirect<E> extends GraphDirect {
                 }
             }
         }
-
+        //RELLENAR MATRIZ
         for (int i = 1; i <= nroVertices(); i++) {
             for (Adyacencia adj : adyacencias(i).toArray()) {
                 distance[i][adj.getDestination()] = adj.getWeight();
             }
         }
-
+        //ALGORITMO
         for (int k = 1; k <= nroVertices(); k++) {
             for (int i = 1; i <= nroVertices(); i++) {
                 for (int j = 1; j <= nroVertices(); j++) {
@@ -287,44 +284,16 @@ public class GraphLabelDirect<E> extends GraphDirect {
                 }
             }
         }
-
+        //MOSTRAR MATRIZ
         for (int i = 1; i <= nroVertices(); i++) {
             for (int j = 1; j <= nroVertices(); j++) {
                 if (distance[i][j] == Float.POSITIVE_INFINITY) {
-                    System.out.print("INF ");
+                    System.out.printf("%5s", "∞ ");
                 } else {
-                    System.out.print(distance[i][j] + " ");
+                    System.out.printf("%5.2f", distance[i][j]);
                 }
             }
             System.out.println();
         }
     }
-
-    public static void main(String[] args ) throws Exception{
-        GraphLabelDirect<String> grafo = new GraphLabelDirect<>(10, String.class);
-        grafo.labelsVertices(1, "Goku");
-        grafo.labelsVertices(2, "Vegeta");
-        grafo.labelsVertices(3, "Gohan");
-        grafo.labelsVertices(4, "Piccolo");
-        grafo.labelsVertices(5, "Trunks");
-        grafo.labelsVertices(6, "Goten");
-        grafo.labelsVertices(7, "Krillin");
-        grafo.labelsVertices(8, "Yamcha");
-        grafo.labelsVertices(9, "Tenshinhan");
-        grafo.labelsVertices(10, "Chaoz");
-
-        grafo.addEdge(1, 2, 4f);
-        grafo.addEdge(1, 3, 5f);
-        grafo.addEdge(3, 4, 3f);
-        grafo.addEdge(4, 5, 2f);
-        grafo.addEdge(5, 6, 1f);
-        grafo.addEdge(6, 7, 3f);
-        grafo.addEdge(7, 8, 2f);
-        grafo.addEdge(8, 9, 1f);
-        grafo.addEdge(9, 10, 4f);
-        grafo.addEdge(10, 1, 5f);
-
-        System.out.println(grafo.drawGraph());
-    }
-
 }

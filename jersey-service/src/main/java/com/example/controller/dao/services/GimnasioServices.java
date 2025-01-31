@@ -28,11 +28,13 @@ public class GimnasioServices {
         return obj.get(id);
     }
 
-    public Boolean save() throws Exception {
+    public Boolean save(String json) throws Exception {
+        this.obj.gimnasioFromJson(json);
         return obj.save();
     }
 
-    public Boolean update() throws Exception {
+    public Boolean update(String json) throws Exception {
+        this.obj.gimnasioFromJson(json);
         return obj.update();
     }
 
